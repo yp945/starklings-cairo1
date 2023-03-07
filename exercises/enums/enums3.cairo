@@ -2,10 +2,13 @@
 // Address all the TODOs to make the tests pass!
 // Execute `starklings hint enums3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
 
 #[derive(Drop, Copy)]
 enum Message { // TODO: implement the message variant types based on their usage below
+    Quit: (),
+    Move: Point,
+    Echo: felt,
+    ChangeColor: ((u8, u8, u8)),
 }
 
 #[derive(Drop, Copy)]
@@ -49,8 +52,13 @@ impl StateImpl of StateTrait {
 
     fn process(
         ref self: State, message: Message
-    ) { // TODO: create a match expression to process the different message variants
-    // Remember: When passing a tuple as a function argument, you'll need extra parentheses: fn function((t, u, p, l, e))
+    ) {
+        match message {
+            Message::Quit(()) => self.quit(),
+            Message::Move(Point {x, y}) => self.move_position(Point {x, y}),
+            Message::Echo(msg) => self.echo(msg),
+            Message::ChangeColor((r, g, b)) => self.change_color((r, g, b)),
+        }
     }
 }
 

@@ -4,15 +4,14 @@
 // Fill in the rest of the line that has code missing!
 
 
-// I AM NOT DONE
 
 // TODO
 // Return the solution of x^3 + y - 2
 
 
 fn poly(x : felt, y: felt) ->  felt {
-    // FILL ME
-    res   // Do not change
+    let res = x * x * x + y - 2;
+    res
 }
 
 // Do not change the test function

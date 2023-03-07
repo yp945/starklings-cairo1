@@ -1,7 +1,6 @@
 // options2.cairo
 // Execute `starklings hint options2` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
 
 use option::OptionTrait;
 use debug::print_felt;
@@ -16,10 +15,12 @@ fn test_options() {
 }
 
 fn simple_option(optional_target: Option::<felt>) {
-    // TODO: use the `is_some` and `is_none` methods to check if `optional_target` contains a value.
-    // Place the assertion and the print statement below in the correct blocks.
-    assert(optional_target.unwrap() == 'starklings', 'err1');
-    debug::print_felt('option is empty !');
+    if optional_target.is_some() {
+        assert(optional_target.unwrap() == 'starklings', 'err1');
+    } else {
+        debug::print_felt('option is empty !');
+    }
+
 }
 
 impl OptionFeltCopy of Copy::<Option::<felt>>;

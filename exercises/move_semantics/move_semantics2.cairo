@@ -5,12 +5,11 @@
 use array::ArrayTrait;
 use debug::print;
 
-// I AM NOT DONE
 
 fn main() {
     let arr0 = ArrayTrait::new();
 
-    let mut arr1 = fill_array(arr0);
+    let mut arr1 = fill_array(clone_array(@arr0));
 
     // Do not change the following line!
     print(arr0);
